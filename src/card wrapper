@@ -10,7 +10,7 @@ const cardWrapper = (cards) => `
   </head>
   <body class="pb-5">
     
-    <header class="bg-info py-4 mb-5">
+    <header class="bg-primary py-4 mb-5">
       <h1 class="text-center text-white">
         <i class="fas fa-users mr-1"></i>
         Team Profile generator
