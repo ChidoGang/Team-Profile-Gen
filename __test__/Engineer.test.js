@@ -1,23 +1,63 @@
 const Engineer = require("../lib/Engineer");
 
-test("initiate Engineer", () => {
-    const e = new Engineer("toto","34456","github@gmail","Githubuser456"); 
-    
-    expect (e.github).toBe("Githubuser456")
 
-    expect (e.name).toBe("toto");
+describe("Engineer", () => {
+  
+  
+  describe("Engineer object instantiation", () => {
+    it("Creates an object with name, id, email, and github properties", () => {
+      const engineer = new Engineer("loan", 1, "loan@gmail.com", "loangit");
 
-    expect (e.email).toBe("github@gmail")
+      expect(engineer).toBeInstanceOf(Engineer);
+      expect(engineer.name).toEqual("loan");
+      expect(engineer.id).toEqual(1);
+      expect(engineer.email).toEqual("loan@gmail.com");
+      expect(engineer.github).toEqual("loangit");
+    });
+  });
 
-    expect (e.id).toBe("34456")
+  
+  describe("getName", () => {
+    it("Should return the object's name property", () => {
+      const engineer = new Engineer("loan", 1, "loan@gmail.com", "loangit");
 
-    
-})
+      expect(engineer.getName()).toEqual("loan");
+    });
+  });
 
-test("test Functions", () => {
-    const e = new Engineer("toto","34456","github@gmail","Githubuser456");
+  
+  describe("getId", () => {
+    it("Should return the object's id property", () => {
+      const engineer = new Engineer("loan", 1, "loan@gmail.com", "loangit");
 
-    expect (e.getGithub()).toEqual("Githubuser456"); 
-    
-    expect (e.getrole()).toEqual("Engineer")
-})
+      expect(engineer.getID()).toEqual(1);
+    });
+  });
+
+  
+  describe("getEmail", () => {
+    it("Should return the object's email property", () => {
+      const engineer = new Engineer("loan", 1, "loan@gmail.com", "loangit");
+
+      expect(engineer.getEmail()).toEqual("loan@gmail.com");
+    });
+  });
+
+ 
+  describe("getGithub", () => {
+    it("Should return the object's github property", () => {
+      const engineer = new Engineer("loan", 1, "loan@gmail.com", "loangit");
+
+      expect(engineer.getGithub()).toEqual("loangit");
+    });
+  });
+
+  
+  describe("getRole", () => {
+    it("Should return the string 'Engineer", () => {
+      const engineer = new Engineer("loan", 1, "loan@gmail.com", "loangit");
+
+      expect(engineer.getRole()).toEqual("Engineer");
+    });
+  });
+});

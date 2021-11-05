@@ -1,23 +1,59 @@
 const Manager = require("../lib/Manager");
 
-test("initiate Manager", () => {
-    const e = new Manager("toto","34456","github@gmail","45"); 
-    
-    expect (e.office).toBe("45")
 
-    expect (e.name).toBe("toto");
+describe("Manager", () => {
+  
+  
+  describe("Manager object instantiation", () => {
+    it("Creates an object with name, id, email, and officeNumber properties", () => {
+      const manager = new Manager("loan", 1, "loan@gmail.com", 45);
 
-    expect (e.email).toBe("github@gmail")
+      expect(manager).toBeInstanceOf(Manager);
+      expect(manager.name).toEqual("loan");
+      expect(manager.id).toEqual(1);
+      expect(manager.email).toEqual("loan@gmail.com");
+      expect(manager.officeNumber).toEqual(45);
+    });
+  });
 
-    expect (e.id).toBe("34456")
+  describe("getName", () => {
+    it("Should return the object's name property", () => {
+      const manager = new Manager("loan", 1, "loan@gmail.com", 45);
 
-    
-})
+      expect(manager.getName()).toEqual("loan");
+    });
+  });
 
-test("test Functions", () => {
-    const e = new Manager("toto","34456","github@gmail","45");
+  describe("getId", () => {
+    it("Should return the object's id property", () => {
+      const manager = new Manager("loan", 1, "loan@gmail.com", 45);
 
-    expect (e.getofficeNumber()).toEqual("45")
-    
-    expect (e.getRole()).toEqual("Manager")
-})
+      expect(manager.getID()).toEqual(1);
+    });
+  });
+
+  describe("getEmail", () => {
+    it("Should return the object's email property", () => {
+      const manager = new Manager("loan", 1, "loan@gmail.com", 45);
+
+      expect(manager.getEmail()).toEqual("loan@gmail.com");
+    });
+  });
+  
+  describe("getOffice", () => {
+    it("Should return the object's officeNumber property", () => {
+      const manager = new Manager("loan", 1, "loan@gmail.com", 45);
+
+      expect(manager.getOffice()).toEqual(45);
+    });
+  });
+
+  describe("getRole", () => {
+    it("Should return the string 'Manager'", () => {
+      const manager = new Manager("loan", 1, "loan@gmail.com", 45);
+
+      expect(manager.getRole()).toEqual("Manager");
+    });
+  });
+});
+
